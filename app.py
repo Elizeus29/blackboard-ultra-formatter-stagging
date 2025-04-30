@@ -11,11 +11,14 @@ modo = st.sidebar.selectbox("Selecciona una acción:", ["Formatear preguntas (TX
 with st.sidebar:
     st.markdown("""
         <style>
+        div.stButton{
+         margin-left:20px;
+        }
         div.stButton > button {
             background: none;
             border: none;
             color: #0066cc;
-            padding-left: 10px;
+            padding: 0px;
             font-size: 12px;
             text-align: left;
             text-decoration: none;

@@ -4,6 +4,7 @@ import streamlit as st
 import os
 from zipfile import ZipFile
 import datetime
+import streamlit.components.v1 as components
 
 # Selector de modo
 modo = st.sidebar.selectbox("Selecciona una acción:", ["Formatear preguntas (TXT)", "Crear Banco de Preguntas (ZIP)"])
@@ -26,7 +27,7 @@ if mostrar_video:
         </iframe>
         """,
         height=400
-    )    
+    )   
 
 # ===========================================================
 # MODO 1: FORMATEAR PREGUNTAS PARA BLACKBOARD ULTRA (TXT)

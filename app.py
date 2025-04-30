@@ -19,6 +19,7 @@ with st.sidebar:
             font-size: 11px;
             text-align: left;
             text-decoration: none;
+            margin:0px;
         }
         div.stButton > button:hover {
             text-decoration: none;
@@ -28,7 +29,7 @@ with st.sidebar:
         </style>
     """, unsafe_allow_html=True)
     st.markdown("#### 🎓 Tutoriales")
-    preg_archivo_video = st.button(" ▶ Cargar preguntas desde Archivo")
+    preg_archivo_video = st.button(" 🔹 Cargar preguntas desde Archivo")
     banco_archivo_video = st.button(" 🔹 Cargar Banco de Preguntas")
 
 

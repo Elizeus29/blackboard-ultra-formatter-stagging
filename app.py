@@ -15,8 +15,8 @@ with st.sidebar:
             background: none;
             border: none;
             color: #0066cc;
-            padding: 0;
-            font-size: 5px;
+            padding-left: 10px;
+            font-size: 12px;
             text-align: left;
             text-decoration: none;
             margin:0px;

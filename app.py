@@ -10,10 +10,10 @@ import streamlit.components.v1 as components
 modo = st.sidebar.selectbox("Selecciona una acción:", ["Formatear preguntas (TXT)", "Crear Banco de Preguntas (ZIP)"])
 with st.sidebar:
     st.markdown("#### 🎓 Tutoriales")
-    mostrar_video = st.button("#### ▶️ Cargar preguntas desde Archivo")
+    mostrar_video = st.button(" ▶️ Cargar preguntas desde Archivo")
 # Mostrar iframe solo si el usuario presiona el botón
 if mostrar_video:
-    st.header("🎓 Tutorial: ¿Como Cargar preguntas desde Archivo?")
+    st.header("#### 🎓 Tutorial: ¿Como Cargar preguntas desde Archivo?")
     st.write("""
         ✅ Descubre cómo cargar masivamente preguntas desde un archivo TXT a Blackboard Ultra con formato específico.
         

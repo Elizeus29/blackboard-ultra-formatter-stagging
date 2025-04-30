@@ -10,7 +10,7 @@ modo = st.sidebar.selectbox("Selecciona una acción:", ["Formatear preguntas (TX
 with st.sidebar:
     st.markdown("#### 🎓 Tutoriales")
     st.markdown(
-        "## [▶️ Ver video en Kaltura Media](https://TU_URL_DE_KALTURA.com)",
+        "##### [▶️ Ver video en Kaltura Media](https://TU_URL_DE_KALTURA.com)",
         unsafe_allow_html=True
     )
 

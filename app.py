@@ -10,11 +10,11 @@ modo = st.sidebar.selectbox("Selecciona una acción:", ["Formatear preguntas (TX
 with st.sidebar:
     st.markdown("#### 🎓 Tutoriales")
     st.markdown(
-        "##### ◾ [cargar preguntas desde txt](https://TU_URL_DE_KALTURA.com)",
+        "##### ◾ [Cargar preguntas desde archivo](https://TU_URL_DE_KALTURA.com)",
         unsafe_allow_html=True
     )
     st.markdown(
-        "##### ◾ [cargar banco de preguntas](https://TU_URL_DE_KALTURA.com)",
+        "##### ◾ [Cargar banco de preguntas](https://TU_URL_DE_KALTURA.com)",
         unsafe_allow_html=True
     )
 

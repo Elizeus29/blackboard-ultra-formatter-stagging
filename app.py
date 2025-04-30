@@ -16,19 +16,20 @@ with st.sidebar:
             border: none;
             color: #0066cc;
             padding: 0;
-            font-size: 12px;
+            font-size: 11px;
             text-align: left;
             text-decoration: none;
         }
         div.stButton > button:hover {
-            text-decoration: underline;
+            text-decoration: none;
+            color: #1f618d;
             background: none;
         }
         </style>
     """, unsafe_allow_html=True)
     st.markdown("#### 🎓 Tutoriales")
-    preg_archivo_video = st.button(" ◾ Cargar preguntas desde Archivo")
-    banco_archivo_video = st.button(" ◾ Cargar Banco de Preguntas")
+    preg_archivo_video = st.button(" ▶ Cargar preguntas desde Archivo")
+    banco_archivo_video = st.button(" 🔹 Cargar Banco de Preguntas")
 
 
 

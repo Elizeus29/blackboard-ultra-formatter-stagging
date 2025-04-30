@@ -208,7 +208,7 @@ else:
                 st.stop()
     
             # 🔍 Detectar posiciones reales de aparición para validar el orden
-            pregunta_matches = list(re.finditer(r'(\d+)\.\s', contenido_total))
+            pregunta_matches = list(re.finditer(r'(?m)^(\d+)\.\s', contenido_total))
             justificacion_matches = list(re.finditer(r'Justificación de claves pregunta\s+(\d+):', contenido_total))
             
             pregunta_orden = [(int(m.group(1)), m.start()) for m in pregunta_matches]

@@ -9,32 +9,24 @@ import datetime
 modo = st.sidebar.selectbox("Selecciona una acción:", ["Formatear preguntas (TXT)", "Crear Banco de Preguntas (ZIP)"])
 with st.sidebar:
     st.markdown("#### 🎓 Tutoriales")
-    st.markdown(
-        "##### ◾ [Cargar preguntas desde archivo](https://TU_URL_DE_KALTURA.com)",
-        unsafe_allow_html=True
-    )
-    st.markdown(
-        "##### ◾ [Cargar banco de preguntas](https://TU_URL_DE_KALTURA.com)",
-        unsafe_allow_html=True
-    )
-
-import streamlit.components.v1 as components
-
-components.html(
-    """
-    <iframe id="kaltura_player"
-        src='https://cdnapisec.kaltura.com/p/3457153/embedPlaykitJs/uiconf_id/55955072?iframeembed=true&amp;entry_id=1_1qgsuv3i&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_h0xctz5d%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'
-        style="width: 100%; height: 400px; border: 0;"
-        allowfullscreen
-        webkitallowfullscreen
-        mozAllowFullScreen
-        allow="autoplay *; fullscreen *; encrypted-media *"
-        sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
-        title="Tutorial en Kaltura">
-    </iframe>
-    """,
-    height=400
-)
+    mostrar_video = st.button("▶️ Ver video tutorial")
+# Mostrar iframe solo si el usuario presiona el botón
+if mostrar_video:
+    components.html(
+        """
+        <iframe id="kaltura_player"
+            src='https://cdnapisec.kaltura.com/p/3457153/embedPlaykitJs/uiconf_id/55955072?iframeembed=true&amp;entry_id=1_1qgsuv3i&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_h0xctz5d%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'
+            style="width: 100%; height: 400px; border: 0;"
+            allowfullscreen
+            webkitallowfullscreen
+            mozAllowFullScreen
+            allow="autoplay *; fullscreen *; encrypted-media *"
+            sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
+            title="Tutorial en Kaltura">
+        </iframe>
+        """,
+        height=400
+    )    
 
 # ===========================================================
 # MODO 1: FORMATEAR PREGUNTAS PARA BLACKBOARD ULTRA (TXT)

@@ -9,6 +9,23 @@ import streamlit.components.v1 as components
 # Selector de modo
 modo = st.sidebar.selectbox("Selecciona una acción:", ["Formatear preguntas (TXT)", "Crear Banco de Preguntas (ZIP)"])
 with st.sidebar:
+    st.markdown("""
+        <style>
+        div.stButton > button {
+            background: none;
+            border: none;
+            color: #0066cc;
+            padding: 0;
+            font-size: 14px;
+            text-align: left;
+            text-decoration: none;
+        }
+        div.stButton > button:hover {
+            text-decoration: underline;
+            background: none;
+        }
+        </style>
+    """, unsafe_allow_html=True)
     st.markdown("#### 🎓 Tutoriales")
     preg_archivo_video = st.button(" ▶️ Cargar preguntas desde Archivo")
     banco_archivo_video = st.button(" ▶️ Cargar Banco de Preguntas")

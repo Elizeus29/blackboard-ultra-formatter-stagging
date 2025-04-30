@@ -7,6 +7,12 @@ import datetime
 
 # Selector de modo
 modo = st.sidebar.selectbox("Selecciona una acción:", ["Formatear preguntas (TXT)", "Crear Banco de Preguntas (ZIP)"])
+with st.sidebar:
+    st.markdown("### 🎓 Tutoriales")
+    st.markdown(
+        "[▶️ Ver video en Kaltura Media](https://TU_URL_DE_KALTURA.com)",
+        unsafe_allow_html=True
+    )
 
 # ===========================================================
 # MODO 1: FORMATEAR PREGUNTAS PARA BLACKBOARD ULTRA (TXT)

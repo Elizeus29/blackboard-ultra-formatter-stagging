@@ -12,6 +12,7 @@ with st.sidebar:
     st.markdown("""
         <style>
         div.stButton{
+        font-size:10px;
          margin-left:20px;
         }
         div.stButton > button {

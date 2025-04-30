@@ -13,6 +13,11 @@ with st.sidebar:
     mostrar_video = st.button("▶️ Cargar preguntas desde Archivo")
 # Mostrar iframe solo si el usuario presiona el botón
 if mostrar_video:
+    st.header("🎓 Tutorial: ¿Como Cargar preguntas desde Archivo?")
+    st.write("""
+        ✅ Descubre cómo cargar masivamente preguntas desde un archivo TXT a Blackboard Ultra con formato específico. 
+        En este video aprenderás cómo estructurar correctamente el archivo, importar rápidamente grandes cantidades de preguntas, y optimizar tu tiempo en la creación de evaluaciones.       
+        """)
     components.html(
         """
         <iframe id="kaltura_player"

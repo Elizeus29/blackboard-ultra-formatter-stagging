@@ -16,7 +16,7 @@ with st.sidebar:
             border: none;
             color: #0066cc;
             padding: 0;
-            font-size: 11px;
+            font-size: 5px;
             text-align: left;
             text-decoration: none;
             margin:0px;

@@ -212,10 +212,10 @@ else:
                 st.stop()
     
             try:
-                # Separar preguntas por número con formato flexible: 1, 1., 1.-
+                # Separar preguntas por número con formato flexible: 1, 1., 1.-, 1-
                 preguntas_dict = {}
                 for bloque in re.split(r'(?m)(?=^\d+(?:\.\-?|\-|\.)?\s)', contenido_total.split("Justificación de claves pregunta")[0].strip()):
-                    match = re.match(r'(\d+)[.-]?\s', bloque)
+                    match = re.match(r'^(\d+)(?:\.\-?|\-|\.)?\s', bloque)
                     if match:
                         numero = int(match.group(1))
                         preguntas_dict[numero] = bloque.strip()
@@ -234,7 +234,7 @@ else:
                     if not lineas or len(lineas) < 5:
                         continue
     
-                    pregunta_texto = re.sub(r'^\d+[.-]?\s*', '', lineas[0]).strip()
+                    pregunta_texto = re.sub(r'^\d+(?:\.\-?|\-|\.)?\s*', '', lineas[0]).strip()
                     opciones = []
                     correcta = None
                     for linea in lineas[1:]:

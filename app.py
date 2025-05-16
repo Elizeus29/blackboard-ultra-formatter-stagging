@@ -214,7 +214,7 @@ else:
             try:
                 # Separar preguntas por número con formato flexible: 1, 1., 1.-
                 preguntas_dict = {}
-                for bloque in re.split(r'\n(?=\d+[.-]?\s)', contenido_total.split("Justificación de claves pregunta")[0].strip()):
+                for bloque in re.split(r'(?m)(?=^\d+(?:\.\-?|\-|\.)?\s)', contenido_total.split("Justificación de claves pregunta")[0].strip()):
                     match = re.match(r'(\d+)[.-]?\s', bloque)
                     if match:
                         numero = int(match.group(1))

@@ -272,40 +272,40 @@ else:
                 fecha_actual = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%SZ")
                 res = f"""<?xml version=\"1.0\" encoding=\"utf-8\"?>
     <POOL>
-      <COURSEID value=\"IMPORT\" />
-      <TITLE value=\"{titulo_banco}\" />
+      <COURSEID value="IMPORT" />
+      <TITLE value="{titulo_banco}" />
       <DESCRIPTION>
         <TEXT></TEXT>
       </DESCRIPTION>
       <DATES>
-        <CREATED value=\"{fecha_actual}\" />
-        <UPDATED value=\"{fecha_actual}\" />
+        <CREATED value="{fecha_actual}" />
+        <UPDATED value="{fecha_actual}" />
       </DATES>
       <QUESTIONLIST>
     """
                 for i in range(1, len(preguntas)+1):
-                    res += f'    <QUESTION id=\"q{i}\" class=\"QUESTION_MULTIPLECHOICE\" />\n'
+                    res += f'    <QUESTION id="q{i}" class="QUESTION_MULTIPLECHOICE" />\n'
                 res += "  </QUESTIONLIST>\n"
     
                 for i, p in enumerate(preguntas, 1):
-                    res += f"""  <QUESTION_MULTIPLECHOICE id=\"q{i}\">
+                    res += f"""  <QUESTION_MULTIPLECHOICE id="q{i}">
         <DATES>
-          <CREATED value=\"{fecha_actual}\" />
-          <UPDATED value=\"{fecha_actual}\" />
+          <CREATED value="{fecha_actual}" />
+          <UPDATED value="{fecha_actual}" />
         </DATES>
         <BODY>
           <TEXT>{p['pregunta']}</TEXT>
-          <FLAGS value=\"true\">
-            <ISHTML value=\"true\" />
+          <FLAGS value="true">
+            <ISHTML value="true" />
             <ISNEWLINELITERAL />
           </FLAGS>
         </BODY>
     """
                     for j, opcion in enumerate(p['opciones'], 1):
-                        res += f"""    <ANSWER id=\"q{i}_a{j}\" position=\"{j}\">
+                        res += f"""    <ANSWER id="q{i}_a{j}" position="{j}">
           <DATES>
-            <CREATED value=\"{fecha_actual}\" />
-            <UPDATED value=\"{fecha_actual}\" />
+            <CREATED value="{fecha_actual}" />
+            <UPDATED value="{fecha_actual}" />
           </DATES>
           <TEXT>{opcion}</TEXT>
         </ANSWER>
@@ -315,34 +315,35 @@ else:
                     res += f"""    <GRADABLE>
           <FEEDBACK_WHEN_CORRECT><![CDATA[{comentario}]]></FEEDBACK_WHEN_CORRECT>
           <FEEDBACK_WHEN_INCORRECT><![CDATA[{comentario}]]></FEEDBACK_WHEN_INCORRECT>
-          <CORRECTANSWER answer_id=\"q{i}_a{idx_correcta}\" />
+          <CORRECTANSWER answer_id="q{i}_a{idx_correcta}" />
         </GRADABLE>
       </QUESTION_MULTIPLECHOICE>
-    "
+    """
     
                 res += "</POOL>"
     
-                zip_name = f"banco_{titulo_banco.replace(' ', '_')}.zip"
+                # Generar archivos ZIP
+                zip_name = f"banco_{titulo_banco.replace(' ', '_')}.zip" if titulo_banco else "banco_blackboard.zip"
                 with ZipFile(zip_name, "w") as zipf:
                     zipf.writestr("res00001.dat", res)
-                    zipf.writestr("imsmanifest.xml", """<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-    <manifest identifier=\"man00001\">
-      <organization default=\"toc00001\">
-        <tableofcontents identifier=\"toc00001"/>
+                    zipf.writestr("imsmanifest.xml", """<?xml version="1.0" encoding="UTF-8"?>
+    <manifest identifier="man00001">
+      <organization default="toc00001">
+        <tableofcontents identifier="toc00001"/>
       </organization>
       <resources>
-        <resource baseurl=\"res00001\" file=\"res00001.dat\" identifier=\"res00001\" type=\"assessment/x-bb-pool\"/>
+        <resource baseurl="res00001" file="res00001.dat" identifier="res00001" type="assessment/x-bb-pool"/>
       </resources>
     </manifest>""")
-    
+                
                 with open(zip_name, "rb") as f:
                     st.download_button(
-                        label="📅 Descargar banco de preguntas",
+                        label="📥 Descargar banco de preguntas",
                         data=f,
                         file_name=zip_name,
                         mime="application/zip"
                     )
-    
+                
                 st.success("✅ ¡Banco de preguntas generado correctamente!")
     
             except Exception as e:

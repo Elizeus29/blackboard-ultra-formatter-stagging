@@ -279,7 +279,8 @@ else:
                         comentario = justificacion_raw.replace('\r\n', '\n').replace('\r', '\n')
                         
                         # Convertir viñetas al formato HTML
-                        comentario = re.sub(r'(?:\n\s*)?([•\-*])\s*([a-eA-E]\))\s*', r'<br/>&bull; \2 ', comentario)
+                        #comentario = re.sub(r'(?:\n\s*)?([•\-*])\s*([a-eA-E]\))\s*', r'<br/>&bull; \2 ', comentario)
+                        comentario = re.sub(r'(?:\n\s*)?[•\-*]\s*[a-eA-E]\)\s*', r'<br/>&bull; ', comentario)
                         
                         # Conservar dobles saltos como separadores de párrafos
                         comentario = re.sub(r'\n\s*\n+', '<br/>', comentario)

@@ -255,11 +255,11 @@ else:
                     for linea in lineas[1:]:
                         if not linea: continue
                         
-                        if re.match(r'^\*\s*[a-dA-D]\)', linea):
-                            correcta = re.sub(r'^\*\s*[a-dA-D]\)\s*', '', linea).strip()
+                        if re.match(r'^\*\s*[a-dA-E]\)', linea):
+                            correcta = re.sub(r'^\*\s*[a-dA-E]\)\s*', '', linea).strip()
                             opciones.append(correcta)
                         else:
-                            opcion = re.sub(r'^[a-dA-D]\)\s*', '', linea).strip()
+                            opcion = re.sub(r'^[a-dA-E]\)\s*', '', linea).strip()
                             opciones.append(opcion)
                     
                     if not correcta:
@@ -279,7 +279,7 @@ else:
                         comentario = justificacion_raw.replace('\r\n', '\n').replace('\r', '\n')
                         
                         # Convertir viñetas al formato HTML
-                        comentario = re.sub(r'(?:\n\s*)?([•\-*])\s*([a-dA-D]\))\s*', r'<br/>&bull; \2 ', comentario)
+                        comentario = re.sub(r'(?:\n\s*)?([•\-*])\s*([a-dA-E]\))\s*', r'<br/>&bull; \2 ', comentario)
                         
                         # Conservar dobles saltos como separadores de párrafos
                         comentario = re.sub(r'\n\s*\n+', '<br/>', comentario)

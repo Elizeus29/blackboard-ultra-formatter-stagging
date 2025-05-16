@@ -238,7 +238,8 @@ else:
             
             try:
                 # Procesamiento de preguntas
-                preguntas_bloques = re.split(r'\n(?=\d+\.\s)', contenido_total.split("Justificación de claves pregunta")[0].strip())
+                #preguntas_bloques = re.split(r'\n(?=\d+\.\s)', contenido_total.split("Justificación de claves pregunta")[0].strip())
+                preguntas_bloques = re.split(r'\n(?=\d+[.-]?\s)', contenido_total.split("Justificación de claves pregunta")[0].strip())
                 justificaciones_bloques = re.findall(r'Justificación de claves pregunta \d+:(.*?)(?=(?:Justificación de claves pregunta \d+:|$))', 
                                                    contenido_total, re.DOTALL)
     
@@ -279,7 +280,6 @@ else:
                         comentario = justificacion_raw.replace('\r\n', '\n').replace('\r', '\n')
                         
                         # Convertir viñetas al formato HTML
-                        #comentario = re.sub(r'(?:\n\s*)?([•\-*])\s*([a-eA-E]\))\s*', r'<br/>&bull; \2 ', comentario)
                         comentario = re.sub(r'(?:\n\s*)?[•\-*]\s*[a-eA-E]\)\s*', r'<br/>&bull; ', comentario)
                         
                         # Conservar dobles saltos como separadores de párrafos
